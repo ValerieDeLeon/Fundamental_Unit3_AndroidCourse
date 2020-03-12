@@ -3,12 +3,17 @@ package com.example.simpleasynctask;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextView;
+    private Button mButton;
+    private ProgressBar mProgressBar;
     private static final String TEXT_STATE = "currentText";
 
     @Override
@@ -17,8 +22,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mTextView = findViewById(R.id.textView1);
-        if(savedInstanceState!=null)
-        {
+        mButton = findViewById(R.id.button);
+
+        if (savedInstanceState != null) {
             mTextView.setText(savedInstanceState.getString(TEXT_STATE));
         }
     }
@@ -28,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         mTextView.setText("Napping...");
 
         // Start the AsyncTask.
-        new SimpleAsyncTask(mTextView).execute();
+        new SimpleAsyncTask(mTextView, mProgressBar).execute();
     }
 
     @Override
