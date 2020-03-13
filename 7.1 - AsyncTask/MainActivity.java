@@ -3,7 +3,6 @@ package com.example.simpleasynctask;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -23,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         mTextView = findViewById(R.id.textView1);
         mButton = findViewById(R.id.button);
+        mProgressBar = findViewById(R.id.progressBar);
 
         if (savedInstanceState != null) {
             mTextView.setText(savedInstanceState.getString(TEXT_STATE));
